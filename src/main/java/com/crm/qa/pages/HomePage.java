@@ -35,7 +35,7 @@ public class HomePage extends TestBase {
 	
 	public String verifyHomePageTitle(){
 		return driver.getTitle();
-	}
+	} 
 	
 	
 	public String verifyCorrectUserName() {
