@@ -8,9 +8,9 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.crm.qa.base.TestBase_N;
+import com.crm.qa.base.TestBase;
 
-public class LoginPage_N extends TestBase_N{
+public class LoginPage extends TestBase{
 	
 	//Page Factory - OR:
 	@FindBy(xpath="//input[@name='username']")
@@ -29,7 +29,7 @@ public class LoginPage_N extends TestBase_N{
 	WebElement crmLogo;
 	
 	//Initializing the Page Objects:
-	public LoginPage_N(){
+	public LoginPage(){
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -42,18 +42,19 @@ public class LoginPage_N extends TestBase_N{
 		return crmLogo.isDisplayed();
 	}
 	
-	public HomePage_N login(String un, String pwd){
+	public HomePage login(String un, String pwd) {
 		username.sendKeys(un);
 		password.sendKeys(pwd);
 		popup.click();
 		loginBtn.click();
+		
 		//    	JavascriptExecutor js = (JavascriptExecutor)driver;
 		//    	js.executeScript("arguments[0].click();", loginBtn);
 		    	
 		    	
 		    
 		
-		return new HomePage_N();
+		return new HomePage();
 	}
 	
 	

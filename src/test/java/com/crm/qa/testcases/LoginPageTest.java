@@ -5,22 +5,22 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.crm.qa.base.TestBase_N;
-import com.crm.qa.pages.HomePage_N;
-import com.crm.qa.pages.LoginPage_N;
+import com.crm.qa.base.TestBase;
+import com.crm.qa.pages.HomePage;
+import com.crm.qa.pages.LoginPage;
 
-public class LoginPageTest_N extends TestBase_N{
-	LoginPage_N loginPage;
-	HomePage_N homePage;
+public class LoginPageTest extends TestBase{
+	LoginPage loginPage;
+	HomePage homePage;
 	
-	public LoginPageTest_N(){
+	public LoginPageTest(){
 		super();
 	}
 	
 	@BeforeMethod
 	public void setUp(){
 		initialization();
-		loginPage = new LoginPage_N();	
+		loginPage = new LoginPage();	
 	}
 	
 	@Test(priority=1)
@@ -44,11 +44,9 @@ public class LoginPageTest_N extends TestBase_N{
 	
 	@AfterMethod
 	public void tearDown(){
-		driver.close();
+		driver.quit();
 	}
 	
 	
 	
-	
-
 }

@@ -1,22 +1,23 @@
 package com.crm.qa.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.crm.qa.base.TestBase_N;
+import com.crm.qa.base.TestBase;
 
-public class HomePage_N extends TestBase_N {
-/*
-	@FindBy(xpath = "//td[contains(text(),'User: Naveen K')]")
-	@CacheLookup
+public class HomePage extends TestBase {
+    
+	@FindBy(xpath = "//*[contains(text(),'Hi,')]")
+	//@CacheLookup
 	WebElement userNameLabel;
 
-	@FindBy(xpath = "//a[contains(text(),'Contacts')]")
-	WebElement contactsLink;
-	
+	@FindBy(xpath = "//*[contains(text(),'Hotels')]")
+	WebElement hotelsLink;
+	/*
 	@FindBy(xpath = "//a[contains(text(),'New Contact')]")
 	WebElement newContactLink;
 	
@@ -26,9 +27,9 @@ public class HomePage_N extends TestBase_N {
 
 	@FindBy(xpath = "//a[contains(text(),'Tasks')]")
 	WebElement tasksLink;
-
-	// Initializing the Page Objects:
-	public HomePage_N() {
+    */ 
+   //  Initializing the Page Objects:
+	public HomePage() {
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -37,15 +38,16 @@ public class HomePage_N extends TestBase_N {
 	}
 	
 	
-	public boolean verifyCorrectUserName(){
-		return userNameLabel.isDisplayed();
+	public String verifyCorrectUserName() {
+		//Thread.sleep(10000);
+		return userNameLabel.getText();
 	}
 	
-	public ContactsPage_N clickOnContactsLink(){
-		contactsLink.click();
-		return new ContactsPage_N();
+	public HotelsPage clickOnProfileLink(){
+		hotelsLink.click();
+		return new HotelsPage();
 	}
-	
+	/*
 	public DealsPage clickOnDealsLink(){
 		dealsLink.click();
 		return new DealsPage();
@@ -63,11 +65,7 @@ public class HomePage_N extends TestBase_N {
 		
 	}
 	
+	*/	
 	
 	
-*/	
-	
-	
-	
-
 }

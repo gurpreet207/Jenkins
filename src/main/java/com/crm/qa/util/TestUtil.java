@@ -13,9 +13,9 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import com.crm.qa.base.TestBase_N;
+import com.crm.qa.base.TestBase;
 
-public class TestUtil extends TestBase_N{
+public class TestUtil extends TestBase{
 	
 	public static long PAGE_LOAD_TIMEOUT = 40;
 	public static long IMPLICIT_WAIT = 40;

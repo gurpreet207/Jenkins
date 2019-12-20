@@ -18,14 +18,14 @@ import com.crm.qa.util.TestUtil;
 //import com.crm.qa.util.TestUtil;
 //import com.crm.qa.util.WebEventListener;
 
-public class TestBase_N {
+public class TestBase {
 	
 	public static WebDriver driver;
 	public static Properties prop;
 	//public  static EventFiringWebDriver e_driver;
 	//public static WebEventListener eventListener;
 	
-	public TestBase_N(){
+	public TestBase(){
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "/src/main/java/com/crm"
