@@ -11,24 +11,25 @@ import com.crm.qa.base.TestBase;
 
 public class HomePage extends TestBase {
     
-	@FindBy(xpath = "//*[contains(text(),'Hi,')]")
+	@FindBy(xpath = "//*[@id='header']//following::*[contains(text(),'GURPREET SINGH CHAWLA')]")
 	//@CacheLookup
 	WebElement userNameLabel;
 
-	@FindBy(xpath = "//*[contains(text(),'Hotels')]")
-	WebElement hotelsLink;
-	/*
-	@FindBy(xpath = "//a[contains(text(),'New Contact')]")
-	WebElement newContactLink;
+	@FindBy(xpath = "//*[@id='block_top_menu']//following::*[@title='Dresses'][2]")
+	WebElement Dresses;
 	
-
+	@FindBy(xpath = "//*[@id='block_top_menu']//following::*[@title='Casual Dresses'][2]")
+	WebElement Casualdresses;
+	
+    /* 
 	@FindBy(xpath = "//a[contains(text(),'Deals')]")
 	WebElement dealsLink;
 
 	@FindBy(xpath = "//a[contains(text(),'Tasks')]")
 	WebElement tasksLink;
     */ 
-   //  Initializing the Page Objects:
+
+	//  Initializing the Page Objects:
 	public HomePage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -43,16 +44,15 @@ public class HomePage extends TestBase {
 		return userNameLabel.getText();
 	}
 	
-	public HotelsPage clickOnProfileLink(){
-		hotelsLink.click();
-		return new HotelsPage();
-	}
-	/*
-	public DealsPage clickOnDealsLink(){
-		dealsLink.click();
-		return new DealsPage();
+	public CatalogPage clickOnDressLink() throws InterruptedException{
+		act.moveToElement(Dresses).build().perform();//Hover mouse
+		Thread.sleep(3000); //display subelements of above element for 3 seconds after mouse hover
+		act.moveToElement(Casualdresses).click().build().perform();//Hover mouse
+		Thread.sleep(3000);
+		return new CatalogPage();
 	}
 	
+	/*
 	public TasksPage clickOnTasksLink(){
 		tasksLink.click();
 		return new TasksPage();

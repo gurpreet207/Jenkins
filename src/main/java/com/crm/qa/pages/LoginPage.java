@@ -13,16 +13,16 @@ import com.crm.qa.base.TestBase;
 public class LoginPage extends TestBase{
 	
 	//Page Factory - OR:
-	@FindBy(xpath="//input[@name='username']")
+	@FindBy(xpath=".//*[@id='login_form']//following::*[@id='email']")
 	WebElement username;
 	
-	@FindBy(xpath="//*[@name='password']")
+	@FindBy(xpath=".//*[@id='login_form']//following::*[@id='passwd']")
 	WebElement password;
 	
-	@FindBy(xpath="//*[contains(text(),'Got it!')]")
-	WebElement popup;
+	@FindBy(xpath="//*[@id='header']//following::*[contains(text(),'Sign in')]")
+	WebElement Signin;
 	
-	@FindBy(xpath="//*[contains(@class,'loginbtn')]")
+	@FindBy(xpath=".//*[@id='login_form']//following::*[@id='SubmitLogin']")
 	WebElement loginBtn;
 	
 	@FindBy(xpath="//img[contains(@class,'img-responsive')]")
@@ -43,9 +43,9 @@ public class LoginPage extends TestBase{
 	}
 	
 	public HomePage login(String un, String pwd) {
+		Signin.click();
 		username.sendKeys(un);
 		password.sendKeys(pwd);
-		popup.click();
 		loginBtn.click();
 		
 		//    	JavascriptExecutor js = (JavascriptExecutor)driver;

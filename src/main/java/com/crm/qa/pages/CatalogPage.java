@@ -8,36 +8,39 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.crm.qa.base.TestBase;
 
-public class HotelsPage extends TestBase {
-/*
-	@FindBy(xpath = "//td[contains(text(),'Contacts')]")
-	WebElement contactsLabel;
+public class CatalogPage extends TestBase {
+
+	@FindBy(xpath = "//*[@id='center_column']//following::*[@title='Printed Dress' and @class='product-name']")
+	WebElement Label;
 	
-	@FindBy(id="first_name")
-	WebElement firstName;
-	
-	@FindBy(id="surname")
-	WebElement lastName;
-	
-	@FindBy(name="client_lookup")
-	WebElement company;
-	
-	@FindBy(xpath = "//input[@type='submit' and @value='Save']")
-	WebElement saveBtn;
-	
-	
+	//@FindBy(xpath = "//*[@id='add_to_cart']//following::*[@type='submit' and @name='Submit']//following::*[contains(text(),'Add to cart')]")
+	@FindBy(xpath = "//*[@id='add_to_cart']//following::*[contains(text(),'Add to cart')]")
+	                 
+	WebElement Addcart;
 	
 	// Initializing the Page Objects:
-	public ContactsPage() {
+	public CatalogPage() {
 		PageFactory.initElements(driver, this);
 	}
 	
 	
-	public boolean verifyContactsLabel(){
-		return contactsLabel.isDisplayed();
+	public String verifyCatalogLabel(){
+		return driver.getTitle();
 	}
 	
 	
+	public ShoppingCart ShoppingCartLink() throws InterruptedException{
+		
+		Label.click();
+	    Thread.sleep(3000); //Wait for 3 seconds
+	    Addcart.click();      
+        //Thread.sleep(2000);//Wait for 2 seconds
+		return new ShoppingCart();
+	}
+
+	
+	
+	/*
 	public void selectContactsByName(String name){
 		driver.findElement(By.xpath("//a[text()='"+name+"']//parent::td[@class='datalistrow']"
 				+ "//preceding-sibling::td[@class='datalistrow']//input[@name='contact_id']")).click();
